@@ -69,7 +69,7 @@ class ControllerData {
   void fillButtonReport(int8_t bArr, int i) {
             int8_t b = 16;
             int[16] iArr;
-            //if (this.type == ControllerType.LEFT_JOYCON || this.type == ControllerType.PROCONTROLLER) {
+            if (this.type == ControllerType.LEFT_JOYCON || this.type == ControllerType.PROCONTROLLER) {
                 iArr[0] = buttons[ButtonType::DOWN];
                 iArr[1] = buttons[ButtonType::RIGHT];
                 iArr[2] = buttons[ButtonType::LEFT];
@@ -86,7 +86,6 @@ class ControllerData {
                 iArr[13] = buttons[ButtonType::ZL];
                 iArr[14] = this.left_stick_x;
                 iArr[15] = this.left_stick_y;
-                /* No joycons
             } else {
                 iArr[0] = this.f154b;
                 iArr[1] = this.f153a;
@@ -105,7 +104,7 @@ class ControllerData {
                 iArr[14] = this.right_stick_x;
                 iArr[15] = this.right_stick_y;
             }
-            */
+            
             bArr[i] = 0;
             bArr[i] = (byte) (bArr[i] | (iArr[0] == 0 ? (byte) 0 : 1));
             bArr[i] = (byte) (bArr[i] | (iArr[1] == 0 ? (byte) 0 : 2));
@@ -154,6 +153,7 @@ class ControllerData {
                 bArr[i + i3] = (byte) (i3 % 2 == 0 ? 128 : 0);
             }
         }
+        */
 
         void fillFullButtonReport(int8_t* bArr, uint8_t i) {
             int i2 = i;
@@ -227,5 +227,4 @@ class ControllerData {
             //}
         }
     }
-    */
 }
